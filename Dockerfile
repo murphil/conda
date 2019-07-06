@@ -21,10 +21,11 @@ RUN set -ex \
   #; npm config set prefix ${NPM_HOME} \
   #; npm config set registry https://registry.npm.taobao.org \
   #; npm -g install http-server \
-  ; npm cache clean -f \
+  ; npm cache clean -f
   #; cp -r /root/.zshrc.d /root/.zshrc ${HOME} \
 
-ADD .fzf ${HOME}/.fzf
+
+COPY .fzf ${HOME}/.fzf
 ### fzf
 RUN set -ex \
   ; wget -q -O- https://github.com/junegunn/fzf-bin/releases/download/${fzf_version}/fzf-${fzf_version}-linux_amd64.tgz \
