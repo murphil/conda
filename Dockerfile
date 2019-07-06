@@ -26,6 +26,9 @@ RUN set -ex \
 
 
 COPY .fzf ${HOME}/.fzf
+RUN set -ex \
+; cd $HOME \
+; tree
 ### fzf
 RUN set -ex \
   ; wget -q -O- https://github.com/junegunn/fzf-bin/releases/download/${fzf_version}/fzf-${fzf_version}-linux_amd64.tgz \
