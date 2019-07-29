@@ -22,18 +22,26 @@ esac
 source "$CFG/.fzf/shell/key-bindings.zsh"
 
 function psaux-fzf {
-  ps aux | fzf -e --header-lines=1 -q ${1:-''}
+  ps aux | fzf -e --header-lines=1 -q ${1:-''} \
+         | awk '{print $2}'
 }
 alias px='psaux-fzf'
 
 function pxx {
-  local x=$(ps aux | fzf -e --header-lines=1 -m --preview='pstree $(echo {} | awk '"'"'{print $2}'"'"')' -q ${1:-''})
-  echo $x | awk '{print $2}'
+  ps aux | fzf -e --header-lines=1 -m --preview='pstree $(echo {} | awk '"'"'{print $2}'"'"')' -q ${1:-''}
 }
 
-function pxk {
-  kill $(pxx ${1:-''})
-}
+if type 'after' 2>/dev/null | grep -q 'function'
+then
+  function paf {
+    after $(pxx | awk '{print $2}') && eval $*
+  }
+  function pf {
+    local x=$(pxx $*)
+    local pid=$(echo $x | awk '{print $2}')
+    (after $pid ; awm 'Process Finish' "$(echo $x | sed -E 's/.*[0-9]+:[0-9]+(.*)/\1/')") &
+  }
+fi
 
 function cdf {
    local file
