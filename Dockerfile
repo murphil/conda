@@ -8,12 +8,11 @@ WORKDIR ${HOME}
 EXPOSE 8888
 
 ### Node
-ENV NODE_HOME=/opt/node NODE_VERSION=12.7.0
+ENV NODE_HOME=/opt/node NODE_VERSION=12.8.0
 ENV fzf_version=0.18.0
 ENV PATH=${NODE_HOME}/bin:$PATH
 RUN set -ex \
   ; mkdir -p ${NODE_HOME} \
-  #; ssh up "cat ~/pub/Platform/node/node-v${NODE_VERSION}-linux-x64.tar.xz" \
   ; wget -q -O- https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-x64.tar.xz \
     | tar xJ -C ${NODE_HOME} --strip-components 1 \
   ; chown -R root:root ${NODE_HOME} \
