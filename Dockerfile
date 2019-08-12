@@ -40,13 +40,13 @@ ENV JUPYTER_ROOT='' JUPYTER_PASSWORD='asdf'
 ENV CONDA_HOME=/opt/conda tf_version=2.0.0b1
 ENV PATH=${CONDA_HOME}/bin:$PATH
 RUN set -ex \
-  #; wget -q -O miniconda.sh https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh \
-  ; wget -q -O miniconda.sh https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/Miniconda3-latest-Linux-x86_64.sh \
+  ; wget -q -O miniconda.sh https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh \
+  #; wget -q -O miniconda.sh https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/Miniconda3-latest-Linux-x86_64.sh \
   ; bash ./miniconda.sh -b -p ${CONDA_HOME} \
   ; rm ./miniconda.sh \
-  ; conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/ \
-    && conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/ \
-    && conda config --set show_channel_urls yes \
+  #; conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/ \
+  #  && conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/ \
+  #  && conda config --set show_channel_urls yes \
   ; conda clean --all -f -y \
   ; ln -s ${CONDA_HOME}/etc/profile.d/conda.sh /etc/profile.d/conda.sh \
   ; echo ". ${CONDA_HOME}/etc/profile.d/conda.sh" >> ~/.bashrc \
@@ -67,7 +67,7 @@ RUN set -ex \
         ca-certificates cryptography pyjwt \
         cffi zeromq libssh2 openssl blaze pyzmq pcre \
   ; conda clean --all -f -y \
-  ; pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple \
+  #; pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple \
   ; pip --no-cache-dir install \
         tensorflow==${tf_version} \
         bash_kernel ipython-sql pgspecial jieba sh cachetools \
