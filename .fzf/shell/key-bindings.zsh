@@ -99,5 +99,5 @@ histdb-fzf-widget() {
   return $ret
 }
 
-zle     -N   histdb-fzf-widget
-bindkey '^R' histdb-fzf-widget
+#zle     -N   histdb-fzf-widget
+#bindkey '^R' histdb-fzf-widget
