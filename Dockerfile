@@ -67,7 +67,7 @@ RUN set -ex \
         ca-certificates cryptography pyjwt \
         cffi zeromq libssh2 openssl blaze pyzmq pcre \
   ; conda clean --all -f -y \
-  ; pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple \
+  #; pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple \
   ; pip --no-cache-dir install \
         tensorflow==${tf_version} \
         bash_kernel ipython-sql pgspecial jieba sh cachetools \
