@@ -83,17 +83,17 @@ RUN set -ex \
   ; echo 'c.NotebookApp.open_browser = False' >> $jupyter_cfg
 
 
-#RUN set -ex \
-#  ; jupyter labextension install @jupyterlab/git \
-#  ; jupyter labextension install jupyterlab-emacskeys \
-#  ; pip --no-cache-dir install jupyterlab-git \
-#  ; jupyter serverextension enable --py jupyterlab_git \
-#  #; jupyter labextension install @jupyterlab/celltags \
-#  ; jupyter labextension install jupyterlab-drawio \
-#  #; jupyter labextension install @krassowski/jupyterlab_go_to_definition \
-#  ; jupyter labextension install @jupyterlab/toc \
-#  ; rm -rf /usr/local/share/.cache/yarn \
-#  ; npm cache clean -f
+RUN set -ex \
+  ; jupyter labextension install @jupyterlab/git \
+  ; jupyter labextension install jupyterlab-emacskeys \
+  #; pip --no-cache-dir install jupyterlab-git \
+  #; jupyter serverextension enable --py jupyterlab_git \
+  #; jupyter labextension install @jupyterlab/celltags \
+  ; jupyter labextension install jupyterlab-drawio \
+  #; jupyter labextension install @krassowski/jupyterlab_go_to_definition \
+  ; jupyter labextension install @jupyterlab/toc \
+  ; rm -rf /usr/local/share/.cache/yarn \
+  ; npm cache clean -f
 
 # ENTRYPOINT [ "/usr/bin/tini", "--" ]
 CMD [ "jupyter", "lab", "--ip", "0.0.0.0"]
