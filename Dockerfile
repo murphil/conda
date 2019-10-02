@@ -8,7 +8,7 @@ WORKDIR ${HOME}
 EXPOSE 8888
 
 ### Node
-ENV NODE_HOME=/opt/node NODE_VERSION=12.11.0
+ENV NODE_HOME=/opt/node NODE_VERSION=12.11.1
 ENV fzf_version=0.18.0
 ENV PATH=${NODE_HOME}/bin:$PATH
 RUN set -ex \
