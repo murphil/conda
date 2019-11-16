@@ -34,7 +34,9 @@ function pxx {
 if type 'after' 2>/dev/null | grep -q 'function'
 then
   function paf {
-    after $(pxx | awk '{print $2}') && eval $*
+    local x=$(pxx)
+    local pid=$(echo $x | awk '{print $2}')
+    (after $pid ; eval "$@") &
   }
   function pf {
     local x=$(pxx)
