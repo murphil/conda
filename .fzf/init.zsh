@@ -41,7 +41,7 @@ then
   function pf {
     local x=$(pxx)
     local pid=$(echo $x | awk '{print $2}')
-    (after $pid ; entf $1 'Process Finish' "$(echo $x | sed -E 's/.*[0-9]+:[0-9]+(.*)/\1/')") &
+    (after $pid ; entf $1 -t "☑️$(echo $x | sed -E 's/.*[0-9]+:[0-9]+(.*)/\1/')") &
   }
 fi
 
