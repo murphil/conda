@@ -43,6 +43,7 @@ then
     local pid=$(echo $x | awk '{print $2}')
     (after $pid ; entf $1 -t "☑️$(echo $x | sed -E 's/.*[0-9]+:[0-9]+(.*)/\1/')") &
   }
+  compdef _comp_entf_recipients pf
 fi
 
 function cdf {
