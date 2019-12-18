@@ -9,7 +9,6 @@ EXPOSE 8888
 
 ### Node
 ENV NODE_HOME=/opt/node NODE_VERSION=12.14.0
-ENV fzf_version=0.20.0
 ENV PATH=${NODE_HOME}/bin:$PATH
 RUN set -ex \
   ; mkdir -p ${NODE_HOME} \
@@ -22,18 +21,6 @@ RUN set -ex \
   #; npm -g install http-server \
   ; npm cache clean -f
   #; cp -r /root/.zshrc.d /root/.zshrc ${HOME} \
-
-
-COPY .fzf ${HOME}/.fzf
-
-### fzf
-RUN set -ex \
-  ; wget -q -O- https://github.com/junegunn/fzf-bin/releases/download/${fzf_version}/fzf-${fzf_version}-linux_amd64.tgz \
-      | tar zxvf - -C ${HOME}/.fzf/bin/lin \
-  # ; ssh up 'cat ~/pub/Appilcation/Linux/fzf-0.17.5-linux_amd64.tgz' \
-  #     | tar zxvf - -C ${HOME}/.fzf/bin \
-  ; echo "\n[ -d \$CFG/.fzf ] && source \$CFG/.fzf/init.zsh" >> ${HOME}/.zshrc
-
 
 ### CONDA
 ENV JUPYTER_ROOT='' JUPYTER_PASSWORD='asdf'
