@@ -1,4 +1,4 @@
-FROM nnurphy/deb
+FROM nnurphy/ub
 
 ENV HOME=/root LANG=zh_CN.UTF-8
 ENV PATH=${HOME}/.local/bin:$PATH
