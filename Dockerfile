@@ -47,7 +47,6 @@ RUN set -ex \
         Statsmodels SymPy Gensim numexpr NLTK networkx \
         # Keras TensorFlow <PyMC>
         Requests furl html5lib \
-        fastapi uvicorn \
         PyParsing decorator more-itertools \
         fabric chardet click \
         sqlite psycopg2 pyyaml cloudpickle datashape libxml2 libxslt libuuid \
@@ -58,6 +57,7 @@ RUN set -ex \
   #; pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple \
   ; pip --no-cache-dir install \
         tensorflow==${tf_version} \
+        fastapi uvicorn \
         bash_kernel ipython-sql pgspecial jieba sh cachetools \
         config envelopes transitions chronyk queries fn.py \
   ; python -m bash_kernel.install \
