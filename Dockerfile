@@ -24,7 +24,7 @@ RUN set -ex \
 
 ### CONDA
 ENV JUPYTER_ROOT='' JUPYTER_PASSWORD='asdf'
-ENV CONDA_HOME=/opt/conda tf_version=2.1.0
+ENV CONDA_HOME=/opt/conda tf_version=2.2.0
 ENV PATH=${CONDA_HOME}/bin:$PATH
 RUN set -ex \
   ; wget -q -O miniconda.sh https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh \
