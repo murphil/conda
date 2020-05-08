@@ -46,7 +46,8 @@ RUN set -ex \
         matplotlib Seaborn Bokeh \
         Statsmodels SymPy Gensim numexpr NLTK networkx \
         # Keras TensorFlow <PyMC>
-        Requests furl html5lib flask \
+        Requests furl html5lib \
+        fastapi uvicorn \
         PyParsing decorator more-itertools \
         fabric chardet click \
         sqlite psycopg2 pyyaml cloudpickle datashape libxml2 libxslt libuuid \
