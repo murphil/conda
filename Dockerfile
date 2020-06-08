@@ -1,6 +1,7 @@
 FROM nnurphy/ub
 
-ENV HOME=/root LANG=zh_CN.UTF-8
+ENV LANG=zh_CN.UTF-8
+ENV HOME=/root
 ENV PATH=${HOME}/.local/bin:$PATH
 
 WORKDIR ${HOME}
@@ -8,7 +9,8 @@ WORKDIR ${HOME}
 EXPOSE 8888
 
 ### Node
-ENV NODE_HOME=/opt/node NODE_VERSION=12.18.0
+ENV NODE_VERSION=12.18.0
+ENV NODE_HOME=/opt/node
 ENV PATH=${NODE_HOME}/bin:$PATH
 RUN set -ex \
   ; mkdir -p ${NODE_HOME} \
@@ -23,8 +25,9 @@ RUN set -ex \
   #; cp -r /root/.zshrc.d /root/.zshrc ${HOME} \
 
 ### CONDA
+ENV tf_version=2.2.0
 ENV JUPYTER_ROOT='' JUPYTER_PASSWORD='asdf'
-ENV CONDA_HOME=/opt/conda tf_version=2.2.0
+ENV CONDA_HOME=/opt/conda
 ENV PATH=${CONDA_HOME}/bin:$PATH
 RUN set -ex \
   ; wget -q -O miniconda.sh https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh \
