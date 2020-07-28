@@ -25,7 +25,7 @@ RUN set -ex \
   #; cp -r /root/.zshrc.d /root/.zshrc ${HOME} \
 
 ### CONDA
-ENV tf_version=2.2.0
+ENV tf_version=2.3.0
 ENV JUPYTER_ROOT='' JUPYTER_PASSWORD='asdf'
 ENV CONDA_HOME=/opt/conda
 ENV PATH=${CONDA_HOME}/bin:$PATH
