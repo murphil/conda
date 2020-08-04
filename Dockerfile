@@ -42,7 +42,7 @@ RUN set -ex \
   ; echo ". ${CONDA_HOME}/etc/profile.d/conda.sh" >> ~/.bashrc \
   ; echo "conda activate base" >> ~/.bashrc \
   ; conda update --all \
-  ; conda install IPython ipykernel ipyparallel jupyter jupyterlab jupyterlab_launcher \
+  ; conda install IPython ipykernel ipyparallel jupyter jupyterlab \
   ##################### RUN set -ex \
   ; conda install \
         SciPy Numpy numpydoc Scikit-learn scikit-image Pandas numba \
