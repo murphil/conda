@@ -75,10 +75,11 @@ RUN set -ex \
 
 
 RUN set -ex \
-  ; jupyter labextension install @jupyterlab/git \
   ; jupyter labextension install jupyterlab-emacskeys \
-  ; pip --no-cache-dir install jupyterlab-git \
+  ; pip --no-cache-dir install --upgrade jupyterlab-git \
+  ; jupyter lab build \
   ; jupyter serverextension enable --py jupyterlab_git \
+  ; jupyter labextension install @jupyterlab/git \
   #; jupyter labextension install @jupyterlab/celltags \
   ; jupyter labextension install jupyterlab-drawio \
   #; jupyter labextension install @krassowski/jupyterlab_go_to_definition \
