@@ -57,9 +57,9 @@ RUN set -ex \
         cffi zeromq libssh2 openssl pyzmq pcre \
   ; conda clean --all -f -y \
   #; pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple \
-  ; pip --no-cache-dir install \
+  ; pip --no-cache-dir install ptvsd \
         torch \
-        fastapi uvicorn \
+        fastapi uvicorn aiohttp aiohttp-requests \
         bash_kernel ipython-sql pgspecial jieba sh cachetools \
         config envelopes transitions chronyk queries fn.py \
   ; python -m bash_kernel.install \
