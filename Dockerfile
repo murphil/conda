@@ -9,7 +9,7 @@ WORKDIR ${HOME}
 EXPOSE 8888
 
 ### Node
-ENV NODE_VERSION=14.15.0
+ENV NODE_VERSION=14.15.1
 ENV NODE_HOME=/opt/node
 ENV PATH=${NODE_HOME}/bin:$PATH
 RUN set -ex \
@@ -25,7 +25,7 @@ RUN set -ex \
   #; cp -r /root/.zshrc.d /root/.zshrc ${HOME} \
 
 ### CONDA
-ENV tf_version=2.3.1
+ENV tf_version=2.4.0
 ENV JUPYTER_ROOT='' JUPYTER_PASSWORD='asdf'
 ENV CONDA_HOME=/opt/conda
 ENV PATH=${CONDA_HOME}/bin:$PATH
