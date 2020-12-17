@@ -75,14 +75,14 @@ RUN set -ex \
 
 
 RUN set -ex \
-  ; jupyter labextension install jupyterlab-emacskeys \
+  ; jupyter labextension install @axlair/jupyterlab_vim \
   ; pip --no-cache-dir install --upgrade jupyterlab-git \
   ; jupyter lab build \
   ; jupyter serverextension enable --py jupyterlab_git \
   ; jupyter labextension install @jupyterlab/git \
-  #; jupyter labextension install @jupyterlab/celltags \
+  ; jupyter labextension install @jupyterlab/celltags \
   ; jupyter labextension install jupyterlab-drawio \
-  #; jupyter labextension install @krassowski/jupyterlab_go_to_definition \
+  ; jupyter labextension install @krassowski/jupyterlab_go_to_definition \
   ; jupyter labextension install @jupyterlab/toc \
   ; rm -rf /usr/local/share/.cache/yarn \
   ; npm cache clean -f
