@@ -8,22 +8,6 @@ WORKDIR ${HOME}
 
 EXPOSE 8888
 
-### Node
-ENV NODE_VERSION=14.15.1
-ENV NODE_HOME=/opt/node
-ENV PATH=${NODE_HOME}/bin:$PATH
-RUN set -ex \
-  ; mkdir -p ${NODE_HOME} \
-  ; wget -q -O- https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-x64.tar.xz \
-    | tar xJ -C ${NODE_HOME} --strip-components 1 \
-  ; chown -R root:root ${NODE_HOME} \
-  #; mkdir -p ${NPM_HOME} \
-  #; npm config set prefix ${NPM_HOME} \
-  #; npm config set registry https://registry.npm.taobao.org \
-  #; npm -g install http-server \
-  ; npm cache clean -f
-  #; cp -r /root/.zshrc.d /root/.zshrc ${HOME} \
-
 ### CONDA
 ENV tf_version=2.4.0
 ENV JUPYTER_ROOT='' JUPYTER_PASSWORD='asdf'
@@ -58,7 +42,7 @@ RUN set -ex \
         cffi zeromq libssh2 openssl pyzmq pcre \
   ; conda clean --all -f -y \
   #; pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple \
-  ; pip --no-cache-dir install ptvsd \
+  ; pip --no-cache-dir install ptvsd neovim \
         tensorflow==${tf_version} \
         fastapi uvicorn aiohttp aiohttp-requests \
         bash_kernel ipython-sql pgspecial jieba sh cachetools \
