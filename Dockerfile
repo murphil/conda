@@ -9,7 +9,6 @@ WORKDIR ${HOME}
 EXPOSE 8888
 
 ### CONDA
-ENV tf_version=2.4.0
 ENV JUPYTER_ROOT='' JUPYTER_PASSWORD='asdf'
 ENV CONDA_HOME=/opt/conda
 ENV PATH=${CONDA_HOME}/bin:$PATH
@@ -26,16 +25,13 @@ RUN set -ex \
   ; echo ". ${CONDA_HOME}/etc/profile.d/conda.sh" >> ~/.bashrc \
   ; echo "conda activate base" >> ~/.bashrc \
   ; conda update --all \
-  ; conda install -y IPython ipykernel ipyparallel jupyter jupyterlab \
+  ; conda install -c conda-forge -y IPython ipykernel ipyparallel jupyter jupyterlab=3 \
   ##################### RUN set -ex \
   ; conda install -y \
         SciPy Numpy numpydoc Scikit-learn scikit-image Pandas numba \
         matplotlib Seaborn Bokeh \
         Statsmodels SymPy numexpr NLTK networkx \
         # Keras TensorFlow <PyMC>
-        Requests furl html5lib \
-        pyparsing decorator more-itertools \
-        fabric chardet click \
         sqlite psycopg2 pyyaml cloudpickle datashape libxml2 libxslt libuuid \
         xz zlib zstd snappy \
         ca-certificates cryptography pyjwt \
@@ -43,7 +39,10 @@ RUN set -ex \
   ; conda clean --all -f -y \
   #; pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple \
   ; pip --no-cache-dir install ptvsd neovim \
-        tensorflow==${tf_version} \
+        torch pytorch-lightning \
+        fabric typer hydra-core \
+        pyparsing decorator more-itertools \
+        Requests furl html5lib \
         fastapi uvicorn aiohttp aiohttp-requests \
         bash_kernel ipython-sql pgspecial jieba sh cachetools \
         typer hydra-core envelopes transitions chronyk fn.py \
@@ -60,14 +59,12 @@ RUN set -ex \
 
 RUN set -ex \
   ; jupyter labextension install @axlair/jupyterlab_vim \
-  ; pip --no-cache-dir install --upgrade jupyterlab-git \
-  ; jupyter lab build \
-  ; jupyter serverextension enable --py jupyterlab_git \
-  ; jupyter labextension install @jupyterlab/git \
-  #; jupyter labextension install @jupyterlab/celltags \
-  ; jupyter labextension install jupyterlab-drawio \
-  ; jupyter labextension install @krassowski/jupyterlab_go_to_definition \
-  ; jupyter labextension install @jupyterlab/toc \
+  #; pip --no-cache-dir install --upgrade jupyterlab-git \
+  #; jupyter lab build \
+  #; jupyter serverextension enable --py jupyterlab_git \
+  #; jupyter labextension install @jupyterlab/git \
+  #; jupyter labextension install jupyterlab-drawio \
+  #; jupyter labextension install @krassowski/jupyterlab_go_to_definition \
   ; rm -rf /usr/local/share/.cache/yarn \
   ; npm cache clean -f
 
