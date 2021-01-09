@@ -50,11 +50,12 @@ RUN set -ex \
   ; jupyter lab --generate-config \
   ; jupyter_cfg=$HOME/.jupyter/jupyter_lab_config.py \
   ; echo "import os\nfrom IPython.lib import passwd\n" >> $jupyter_cfg \
-  ; echo 'c.NotebookApp.terminado_settings = { "shell_command": ["/bin/zsh"] }' >> $jupyter_cfg \
-  ; echo 'c.NotebookApp.password = passwd(os.getenv("JUPYTER_PASSWORD"))' >> $jupyter_cfg \
-  ; echo 'c.ContentsManager.root_dir = os.getenv("JUPYTER_ROOT")' >> $jupyter_cfg \
-  ; echo 'c.NotebookApp.allow_root = True' >> $jupyter_cfg \
-  ; echo 'c.NotebookApp.open_browser = False' >> $jupyter_cfg
+  ; echo 'c.ServerApp.terminado_settings = { "shell_command": ["/bin/zsh"] }' >> $jupyter_cfg \
+  ; echo 'c.ServerApp.password = passwd(os.getenv("JUPYTER_PASSWORD"))' >> $jupyter_cfg \
+  ; echo 'c.ServerApp.root_dir = os.getenv("JUPYTER_ROOT")' >> $jupyter_cfg \
+  ; echo 'c.ServerApp.allow_root = True' >> $jupyter_cfg \
+  ; echo 'c.ServerApp.ip = "0.0.0.0"' >> $jupyter_cfg \
+  ; echo 'c.ExtensionApp.open_browser = False' >> $jupyter_cfg
 
 
 RUN set -ex \
@@ -69,4 +70,4 @@ RUN set -ex \
   ; npm cache clean -f
 
 # ENTRYPOINT [ "/usr/bin/tini", "--" ]
-CMD [ "jupyter", "lab", "--ip", "0.0.0.0"]
+CMD [ "jupyter", "lab"]
