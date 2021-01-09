@@ -46,10 +46,10 @@ RUN set -ex \
         tensorflow==${tf_version} \
         fastapi uvicorn aiohttp aiohttp-requests \
         bash_kernel ipython-sql pgspecial jieba sh cachetools \
-        config envelopes transitions chronyk queries fn.py \
+        typer hydra-core envelopes transitions chronyk fn.py \
   ; python -m bash_kernel.install \
-  ; jupyter notebook --generate-config \
-  ; jupyter_cfg=$HOME/.jupyter/jupyter_notebook_config.py \
+  ; jupyter lab --generate-config \
+  ; jupyter_cfg=$HOME/.jupyter/jupyter_lab_config.py \
   ; echo "import os\nfrom IPython.lib import passwd\n" >> $jupyter_cfg \
   ; echo 'c.NotebookApp.terminado_settings = { "shell_command": ["/bin/zsh"] }' >> $jupyter_cfg \
   ; echo 'c.NotebookApp.password = passwd(os.getenv("JUPYTER_PASSWORD"))' >> $jupyter_cfg \
