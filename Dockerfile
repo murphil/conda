@@ -69,5 +69,10 @@ RUN set -ex \
   ; rm -rf /usr/local/share/.cache/yarn \
   ; npm cache clean -f
 
+RUN set -eux \
+  ; nvim_home=/etc/skel/.config/nvim \
+  ; SKIP_CYTHON_BUILD=1 $nvim_home/plugged/vimspector/install_gadget.py --enable-python \
+  ; rm -f $nvim_home/plugged/vimspector/gadgets/linux/download/debugpy/*/*.zip
+
 # ENTRYPOINT [ "/usr/bin/tini", "--" ]
 CMD [ "jupyter", "lab"]
