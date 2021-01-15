@@ -43,7 +43,7 @@ RUN set -ex \
         fabric typer hydra-core \
         pyparsing decorator more-itertools \
         Requests furl html5lib \
-        fastapi uvicorn aiohttp aiohttp-requests \
+        fastapi uvicorn aiohttp \
         bash_kernel ipython-sql pgspecial jieba sh cachetools \
         typer hydra-core envelopes transitions chronyk fn.py \
   ; python -m bash_kernel.install \
