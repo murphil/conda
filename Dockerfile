@@ -24,7 +24,7 @@ RUN set -ex \
   ; ln -s ${CONDA_HOME}/etc/profile.d/conda.sh /etc/profile.d/conda.sh \
   ; echo ". ${CONDA_HOME}/etc/profile.d/conda.sh" >> ~/.bashrc \
   ; echo "conda activate base" >> ~/.bashrc \
-  ; conda update --all \
+  ; conda update --all -y \
   ; conda install -c conda-forge -y IPython ipykernel ipyparallel jupyter jupyterlab=3 \
   ##################### RUN set -ex \
   ; conda install -y \
