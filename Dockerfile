@@ -25,11 +25,11 @@ RUN set -ex \
   ; echo ". ${CONDA_HOME}/etc/profile.d/conda.sh" >> ~/.bashrc \
   ; echo "conda activate base" >> ~/.bashrc \
   ; conda update --all -y \
-  ; conda install -c conda-forge -y IPython ipykernel ipyparallel jupyter jupyterlab=3 \
+  ; conda install -c conda-forge -y IPython ipykernel ipyparallel jupyterlab=3 \
   ##################### RUN set -ex \
   ; conda install -y \
         SciPy Numpy numpydoc Scikit-learn scikit-image Pandas numba \
-        matplotlib Seaborn Bokeh \
+        matplotlib-base Bokeh \
         Statsmodels SymPy numexpr NLTK networkx \
         # Keras TensorFlow <PyMC>
         sqlite psycopg2 pyyaml cloudpickle datashape libxml2 libxslt libuuid \
@@ -65,7 +65,6 @@ RUN set -ex \
   #; jupyter serverextension enable --py jupyterlab_git \
   #; jupyter labextension install @jupyterlab/git \
   #; jupyter labextension install jupyterlab-drawio \
-  #; jupyter labextension install @krassowski/jupyterlab_go_to_definition \
   ; rm -rf /usr/local/share/.cache/yarn \
   ; npm cache clean -f
 
