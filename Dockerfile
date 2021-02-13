@@ -32,7 +32,7 @@ RUN set -ex \
         matplotlib-base Bokeh \
         Statsmodels SymPy numexpr NLTK networkx \
         # Keras TensorFlow <PyMC>
-        sqlite psycopg2 pyyaml cloudpickle datashape libxml2 libxslt libuuid \
+        sqlite psycopg2 cloudpickle datashape libxml2 libxslt libuuid \
         xz zlib zstd snappy \
         ca-certificates cryptography pyjwt \
         cffi zeromq libssh2 openssl pyzmq pcre \
@@ -40,12 +40,9 @@ RUN set -ex \
   #; pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple \
   ; pip --no-cache-dir install \
         torch torchvision pytorch-lightning \
-        fabric typer hydra-core \
-        pyparsing decorator more-itertools \
+        transitions fabric \
         Requests furl html5lib envelopes \
-        fastapi uvicorn aiohttp \
         bash_kernel ipython-sql pgspecial jieba sh \
-        cachetools transitions chronyk fn.py \
   ; python -m bash_kernel.install \
   ; jupyter lab --generate-config \
   ; jupyter_cfg=$HOME/.jupyter/jupyter_lab_config.py \
@@ -68,10 +65,10 @@ RUN set -ex \
   ; rm -rf /usr/local/share/.cache/yarn \
   ; npm cache clean -f
 
-RUN set -eux \
-  ; nvim_home=/etc/skel/.config/nvim \
-  ; SKIP_CYTHON_BUILD=1 $nvim_home/plugged/vimspector/install_gadget.py --enable-python \
-  ; rm -f $nvim_home/plugged/vimspector/gadgets/linux/download/debugpy/*/*.zip
+#RUN set -eux \
+#  ; nvim_home=/etc/skel/.config/nvim \
+#  ; SKIP_CYTHON_BUILD=1 $nvim_home/plugged/vimspector/install_gadget.py --enable-python \
+#  ; rm -f $nvim_home/plugged/vimspector/gadgets/linux/download/debugpy/*/*.zip
 
 # ENTRYPOINT [ "/usr/bin/tini", "--" ]
 CMD [ "jupyter", "lab"]
