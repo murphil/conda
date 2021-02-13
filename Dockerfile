@@ -39,13 +39,13 @@ RUN set -ex \
   ; conda clean --all -f -y \
   #; pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple \
   ; pip --no-cache-dir install \
-        torch pytorch-lightning \
+        torch torchvision pytorch-lightning \
         fabric typer hydra-core \
         pyparsing decorator more-itertools \
-        Requests furl html5lib \
+        Requests furl html5lib envelopes \
         fastapi uvicorn aiohttp \
-        bash_kernel ipython-sql pgspecial jieba sh cachetools \
-        typer hydra-core envelopes transitions chronyk fn.py \
+        bash_kernel ipython-sql pgspecial jieba sh \
+        cachetools transitions chronyk fn.py \
   ; python -m bash_kernel.install \
   ; jupyter lab --generate-config \
   ; jupyter_cfg=$HOME/.jupyter/jupyter_lab_config.py \
