@@ -40,8 +40,7 @@ RUN set -ex \
   #; pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple \
   ; pip --no-cache-dir install \
         torch torchvision pytorch-lightning \
-        transitions fabric \
-        Requests furl html5lib envelopes \
+        transitions Requests furl html5lib envelopes \
         bash_kernel ipython-sql pgspecial jieba sh \
   ; python -m bash_kernel.install \
   ; jupyter lab --generate-config \
