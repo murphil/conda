@@ -29,7 +29,7 @@ RUN set -ex \
   ##################### RUN set -ex \
   ; conda install -y \
         SciPy Numpy numpydoc Scikit-learn scikit-image Pandas numba \
-        matplotlib-base Bokeh \
+        matplotlib-base Bokeh pyarrow \
         Statsmodels SymPy numexpr NLTK networkx \
         # Keras TensorFlow <PyMC>
         sqlite psycopg2 cloudpickle datashape libxml2 libxslt libuuid \
