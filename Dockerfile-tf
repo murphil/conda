@@ -1,4 +1,4 @@
-FROM nnurphy/ub
+FROM nnurphy/sid
 
 ENV LANG=zh_CN.UTF-8
 ENV HOME=/root
