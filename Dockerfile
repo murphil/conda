@@ -13,8 +13,8 @@ ENV JUPYTER_ROOT='' JUPYTER_PASSWORD='asdf'
 ENV CONDA_HOME=/opt/conda
 ENV PATH=${CONDA_HOME}/bin:$PATH
 RUN set -ex \
-  ; wget -q -O miniconda.sh https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh \
-  #; wget -q -O miniconda.sh https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/Miniconda3-latest-Linux-x86_64.sh \
+  ; curl -sSLo miniconda.sh https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh \
+  #; curl -sSLo miniconda.sh https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/Miniconda3-latest-Linux-x86_64.sh \
   ; bash ./miniconda.sh -b -p ${CONDA_HOME} \
   ; rm ./miniconda.sh \
   #; conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/ \
