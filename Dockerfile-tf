@@ -1,4 +1,4 @@
-FROM nnurphy/io
+FROM nashv1/io
 
 ENV LANG=zh_CN.UTF-8
 ENV HOME=/root
